@@ -60,5 +60,9 @@ p.SectionAssignment(offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE,
 ################################################
 ################################################
 ################################################
+tp = 2.0
+mdb.models['test'].ExplicitDynamicsStep(name='exp', timePeriod=tp, previous='Initial', improvedDtMethod=ON)
+mdb.models['test'].fieldOutputRequests['F-Output-1'].setValues(variables=('A','U', 'V', 'S'), timeInterval=tp/100, timeMarks=ON)
+mdb.models['test'].historyOutputRequests['H-Output-1'].setValues(variables=('ALLAE', ), timeInterval=tp/100)
 
 
